@@ -1,5 +1,5 @@
 //=============================================================================
-// rpg_windows.js v1.6.1
+// rpg_windows.js v1.6.2
 //=============================================================================
 
 //-----------------------------------------------------------------------------
@@ -47,7 +47,7 @@ Window_Base.prototype.standardFontFace = function() {
 };
 
 Window_Base.prototype.standardFontSize = function() {
-    return 28;
+    return 25;
 };
 
 Window_Base.prototype.standardPadding = function() {
@@ -370,7 +370,6 @@ Window_Base.prototype.convertEscapeCharacters = function(text) {
  text = text.replace(/\x1bG/gi, TextManager.currencyUnit);
  return text;
 };
-
 
 Window_Base.prototype.actorName = function(n) {
     var actor = n >= 1 ? $gameActors.actor(n) : null;
