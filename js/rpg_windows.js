@@ -47,7 +47,7 @@ Window_Base.prototype.standardFontFace = function() {
 };
 
 Window_Base.prototype.standardFontSize = function() {
-    return 25;
+    return 28;
 };
 
 Window_Base.prototype.standardPadding = function() {
@@ -276,99 +276,22 @@ Window_Base.prototype.drawTextEx = function(text, x, y) {
 };
 
 Window_Base.prototype.convertEscapeCharacters = function(text) {
- //Thai Language Fixer by Mikichan
- //Version 18.03.14.5
- text = text.replace(/ั่/g, "ั");
- text = text.replace(/ั้/g, "ั");
- text = text.replace(/ั๊/g, "ั");
- text = text.replace(/ั๋/g, "ั");
- text = text.replace(/ั์/g, "ั");
- text = text.replace(/ิ่/g, "ิ");
- text = text.replace(/ิ้/g, "ิ");
- text = text.replace(/ิ๊/g, "ิ");
- text = text.replace(/ิ๋/g, "ิ");
- text = text.replace(/ิ์/g, "ิ");
- text = text.replace(/ี่/g, "ี");
- text = text.replace(/ี้/g, "ี");
- text = text.replace(/ี๊/g, "ี");
- text = text.replace(/ี๋/g, "ี");
- text = text.replace(/ี์/g, "ี");
- text = text.replace(/ึ่/g, "ึ");
- text = text.replace(/ึ้/g, "ึ");
- text = text.replace(/ึ๊/g, "ึ");
- text = text.replace(/ึ๋/g, "ึ");
- text = text.replace(/ึ์/g, "ึ");
- text = text.replace(/ื่/g, "ื");
- text = text.replace(/ื้/g, "ื");
- text = text.replace(/ื๊/g, "ื");
- text = text.replace(/ื๋/g, "ื");
- text = text.replace(/ื์/g, "ื");
- text = text.replace(/ํ่/g, "ํ");
- text = text.replace(/ํ้/g, "ํ");
- text = text.replace(/ํ๊/g, "ํ");
- text = text.replace(/ํ๋/g, "ํ");
- text = text.replace(/ํ์/g, "ํ");
- text = text.replace(/่ำ/g, "ำ");
- text = text.replace(/้ำ/g, "ำ");
- text = text.replace(/๊ำ/g, "ำ");
- text = text.replace(/๋ำ/g, "ำ");
- text = text.replace(/ญุ/g, "ุ");
- text = text.replace(/ฐุ/g, "ุ");
- text = text.replace(/ญู/g, "ู");
- text = text.replace(/ฐู/g, "ู");
- text = text.replace(/ปั/g, "ป");
- text = text.replace(/ปิ/g, "ป");
- text = text.replace(/ปี/g, "ป");
- text = text.replace(/ปึ/g, "ป");
- text = text.replace(/ปื/g, "ป");
- text = text.replace(/ป็/g, "ป");
- text = text.replace(/ปํ/g, "ป");
- text = text.replace(/ป่/g, "ป");
- text = text.replace(/ป้/g, "ป");
- text = text.replace(/ป๊/g, "ป");
- text = text.replace(/ป๋/g, "ป");
- text = text.replace(/ป์/g, "ป");
- text = text.replace(/ฝั/g, "ฝ");
- text = text.replace(/ฝิ/g, "ฝ");
- text = text.replace(/ฝี/g, "ฝ");
- text = text.replace(/ฝึ/g, "ฝ");
- text = text.replace(/ฝื/g, "ฝ");
- text = text.replace(/ฝ็/g, "ฝ");
- text = text.replace(/ฝํ/g, "ฝ");
- text = text.replace(/ฝ่/g, "ฝ");
- text = text.replace(/ฝ้/g, "ฝ");
- text = text.replace(/ฝ๊/g, "ฝ");
- text = text.replace(/ฝ๋/g, "ฝ");
- text = text.replace(/ฝ์/g, "ฝ");
- text = text.replace(/ฟั/g, "ฟ");
- text = text.replace(/ฟิ/g, "ฟ");
- text = text.replace(/ฟี/g, "ฟ");
- text = text.replace(/ฟึ/g, "ฟ");
- text = text.replace(/ฟื/g, "ฟ");
- text = text.replace(/ฟ็/g, "ฟ");
- text = text.replace(/ฟํ/g, "ฟ");
- text = text.replace(/ฟ่/g, "ฟ");
- text = text.replace(/ฟ้/g, "ฟ");
- text = text.replace(/ฟ๊/g, "ฟ");
- text = text.replace(/ฟ๋/g, "ฟ");
- text = text.replace(/ฟ์/g, "ฟ");
- 
- text = text.replace(/\\/g, '\x1b');
- text = text.replace(/\x1b\x1b/g, '\\');
- text = text.replace(/\x1bV\[(\d+)\]/gi, function() {
-    return $gameVariables.value(parseInt(arguments[1]));
- }.bind(this));
- text = text.replace(/\x1bV\[(\d+)\]/gi, function() {
-    return $gameVariables.value(parseInt(arguments[1]));
- }.bind(this));
- text = text.replace(/\x1bN\[(\d+)\]/gi, function() {
-    return this.actorName(parseInt(arguments[1]));
- }.bind(this));
- text = text.replace(/\x1bP\[(\d+)\]/gi, function() {
-    return this.partyMemberName(parseInt(arguments[1]));
- }.bind(this));
- text = text.replace(/\x1bG/gi, TextManager.currencyUnit);
- return text;
+    text = text.replace(/\\/g, '\x1b');
+    text = text.replace(/\x1b\x1b/g, '\\');
+    text = text.replace(/\x1bV\[(\d+)\]/gi, function() {
+        return $gameVariables.value(parseInt(arguments[1]));
+    }.bind(this));
+    text = text.replace(/\x1bV\[(\d+)\]/gi, function() {
+        return $gameVariables.value(parseInt(arguments[1]));
+    }.bind(this));
+    text = text.replace(/\x1bN\[(\d+)\]/gi, function() {
+        return this.actorName(parseInt(arguments[1]));
+    }.bind(this));
+    text = text.replace(/\x1bP\[(\d+)\]/gi, function() {
+        return this.partyMemberName(parseInt(arguments[1]));
+    }.bind(this));
+    text = text.replace(/\x1bG/gi, TextManager.currencyUnit);
+    return text;
 };
 
 Window_Base.prototype.actorName = function(n) {
